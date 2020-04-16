@@ -1,0 +1,26 @@
+include:
+  - ./functions/opendata-ingestion/pom.xml
+  - ./functions/opendata-ingestion/src
+kind: ArchiveUploadSpec
+name: functions-opendata-ingestion-pom-xml-gMSZ
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: opendata-ingestion
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: opendata-import
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://functions-opendata-ingestion-pom-xml-gMSZ
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2020-04-16T08:10:37Z"

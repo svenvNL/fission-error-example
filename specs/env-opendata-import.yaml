@@ -1,0 +1,36 @@
+apiVersion: fission.io/v1
+kind: Environment
+metadata:
+  creationTimestamp: null
+  name: opendata-import
+  namespace: default
+spec:
+  runtime:
+    image: fission/jvm-env
+    podspec:
+      containers:
+        - name: opendata-import
+          image: fission/jvm-env
+          volumeMounts:
+            - name: opendata-volume
+              mountPath: /etc/opendata
+              readOnly: false
+      volumes:
+        - name: opendata-volume
+          local:
+            path: /opt/k8s/volumes/opendata
+            type: DirectoryOrCreate
+  builder:
+    command: build
+    image: fission/jvm-builder
+  imagepullsecret: ""
+  keeparchive: true
+  poolsize: 3
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  version: 3

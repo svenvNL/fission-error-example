@@ -1,0 +1,27 @@
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: opendata-ingestion
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: newdeploy
+      MaxScale: 1
+      MinScale: 1
+      SpecializationTimeout: 120
+      TargetCPUPercent: 80
+    StrategyType: execution
+  configmaps: null
+  environment:
+    name: opendata-import
+    namespace: default
+  functionTimeout: 60
+  package:
+    functionName: nl.vandervlist.fission.ingestion.Ingest
+    packageref:
+      name: opendata-ingestion
+      namespace: default
+  resources: {}
+  secrets: null
