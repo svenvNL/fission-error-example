@@ -50,7 +50,7 @@ Run the following command
 
 - `fission spec apply`
 
-- In an HTTP client, go to <minikube ip>/test
+- In an HTTP client, go to [minikube ip]/test
 
 The pod `newdeploy-opendata-ingestion-default-<hash>` in the `fission-function` namespace will keep terminating. Looking at the logs with the command ` kubectl logs newdeploy-opendata-ingestion-<hash> -n fission-function fetcher` will show the following error:
 
