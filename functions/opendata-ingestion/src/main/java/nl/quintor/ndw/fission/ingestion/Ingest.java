@@ -1,4 +1,4 @@
-package nl.vandervlist.fission.ingestion;
+package nl.quintor.ndw.fission.ingestion;
 
 import io.fission.Context;
 import io.fission.Function;
